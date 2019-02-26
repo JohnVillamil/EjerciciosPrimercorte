@@ -1,0 +1,661 @@
+//Primer Taller Recursividad:
+
+  public static int tamaño;
+    public String nombre;
+    static Main obj = new Main();
+    private static Scanner leer = new Scanner(System.in);
+    private static int num;
+
+    public static void main(String[] args) {
+///////////////////////////////////????????????????//////////////////////////////////////////////  
+
+        System.out.println("PRIMER PUNTO FIBONACCI");
+        System.out.println(" ");
+        System.out.println("Ingrese la cantidad de números fibonacci que quiere ver");
+        num = leer.nextInt();
+        //obj.Fibonacci(num);
+         for(int i = 0; i<num; i++){
+               System.out.print(Fibonacci(i) + ", ");
+          }
+     
+
+/////////////////////////////////////////////////////////////////////////////////  
+        System.out.println("SEGUNDO PUNTO FACTORIAL");
+        System.out.println(" ");
+        System.out.println("Ingrese un número para el factorial");
+        num = leer.nextInt();
+        obj.Factorial(num);
+        System.out.println("El factorial de " + num + " es " + obj.Factorial(num));
+
+/////////////////////////////////////////////////////////////////////////////////
+        System.out.println("TERCER PUNTO ORDENAR ARREGLELO");
+        System.out.println(" ");
+        System.out.println("Ingrese el tamaño del arreglo");
+        int tamaño = leer.nextInt();
+        obj.Arreglo(tamaño);
+
+/////////////////////////////////////////////////////////////////////////////////
+        System.out.println("CUARTO PUNTO SUMA DE LOS N PRIMEROS NUMEROS");
+        System.out.println(" ");
+        int n;
+        System.out.println("Ingrese los núneros que desea sumar");
+        n = leer.nextInt();
+        obj.SumaN(n);
+
+/////////////////////////////////////////////////////////////////////////////////
+        System.out.println("QUINTO PUNTO SUMA DE LOS N PRIMEROS NUMEROS PARES");
+        System.out.println(" ");
+        //SumaNP sumas = new SumaNP();
+        num = 0;
+        System.out.println("Ingrese los núneros que desea sumar");
+        num = leer.nextInt();
+        obj.SumaNp(num);
+
+/////////////////////////////////////////////////////////////////////////////////
+        System.out.println("SEXTO MÁXIMO COMÚN MULTIPLO");
+        System.out.println(" ");
+        int num2;
+        System.out.println("Ingrese el primer número");
+        num = leer.nextInt();
+        System.out.println("Ingrese el segundo número");
+        num2 = leer.nextInt();
+        obj.mcd(num, num2);
+
+/////////////////////////////////////////////////////////////////////////////////
+        System.out.println("SEPTIMO PUNTO DE ENTERO A BINARIO");
+        System.out.println(" ");
+        System.out.println("Ingrese decimal: ");
+        num = leer.nextInt();
+        obj.inttobin(num);
+
+/////////////////////////////////////////////////////////////////////////////////
+        System.out.println("OCTAVO PUNTO DE BINARIO A ENTERO");
+        System.out.println(" ");
+        System.out.println("Ingrese binario");
+        long num1 = leer.nextLong();
+        obj.bintoint(num1);
+
+/////////////////////////////////////////////////////////////////////////////////
+        System.out.println("NOVENO PUNTO ARREGLO QUE SUMA LOS NUMEROS");
+        System.out.println(" ");
+        System.out.println("Ingrese el tamaño del arreglo");
+        num = leer.nextInt();
+        obj.sumaarreglo(num);
+
+/////////////////////////////////////////////////////////////////////////////////
+        System.out.println("DECIMO PUNTO ARREGLO PARA INVERTIR LOS NUMEROS");
+        System.out.println("Ingrese el tamaño del arreglo");
+        num = leer.nextInt();
+        obj.ArregloInvertido(num);
+
+/////////////////////////////////////////////////////////////////////////////////
+        String x = "";
+        System.out.println("ingrese el número");
+        num = leer.nextInt();
+        for (int i = num; i > num * num * 0; i--) {
+            num = num - 1;
+            x = x + 1 + "+";
+            //while hasta que ciclo=0 y contador=0
+        }
+        String Subx = x.substring(0, x.length() - 1);
+        System.out.println(Subx);
+    }
+    
+    
+    
+    
+    private static int Fibonacci(int tamaño) {
+        int num = tamaño;
+       if(num == 0 || num==1){
+               return num;
+          }else{
+               return Fibonacci(num-1) + Fibonacci(num-2);
+     }
+    }
+    /**
+     * *********************************************************************************************
+     */
+    /**
+     * *********************************************************************************************
+     */
+    /**
+     * *********************************************************************************************
+     */
+    public int Factorial(int tamaño) {
+        if (tamaño > 0) {
+            int factorial = tamaño * Factorial(tamaño - 1);
+            return factorial;
+        }
+        return 1;
+    }
+
+    /**
+     * *********************************************************************************************
+     */
+    /**
+     * *********************************************************************************************
+     */
+    /**
+     * *********************************************************************************************
+     */
+    public static int Arreglo(int cantidad) {
+        int array = cantidad;
+        Scanner leer = new Scanner(System.in);
+        int arreglo[] = new int[array];
+        for (int i = 0; i < array; i++) {
+            int a;
+            a = i;
+            System.out.println("Ingrese " + array + " números, para llenar el arreglo");
+            System.out.println("Ingrese un numero para la posición " + (a + 1));
+            arreglo[i] = leer.nextInt();
+        }
+        int aux = 0;
+        for (int i = 0; i < array; i++) {
+            for (int j = 0; j < array - 1; j++) {
+                if (arreglo[j] > arreglo[j + 1]) {
+                    aux = arreglo[j];
+                    arreglo[j] = arreglo[j + 1];
+                    arreglo[j + 1] = aux;
+                }
+            }
+        }
+        System.out.println("Números ordenados");
+        System.out.println(Arrays.toString(arreglo));
+        return array;
+    }
+
+    /**
+     * *********************************************************************************************
+     */
+    /**
+     * *********************************************************************************************
+     */
+    /**
+     * *********************************************************************************************
+     */
+    int SumaN(int numero) {
+        int cont= 1, suma = 0, num= numero;
+        while (cont <= num) {
+            suma = suma + cont; //suma +1
+            //suma +=cont;
+            cont++;
+        }
+        System.out.println("El resultado es: " + suma);
+        return 1;
+    }
+
+    /**
+     * *********************************************************************************************
+     */
+    /**
+     * *********************************************************************************************
+     */
+    /**
+     * *********************************************************************************************
+     */
+    int SumaNp(int numero) {
+        int n;
+        int cont, suma = 0, num;
+        num = numero;
+        int ciclo = 0;
+        while (ciclo == 0) {
+            if (num % 2 == 0 && num > 0) {
+                cont = 0;
+                while (cont <= num) {
+                    suma = suma + cont; //suma +1
+                    //suma +=cont;
+                    cont++;
+                    ciclo = 1;
+                }
+                System.out.println("El resultado es: " + suma);
+            } else {
+                System.out.println("Error:");
+                System.out.println("      Debe ser un numero par y mayor a 1");
+                num = leer.nextInt();
+            }
+        }
+        return suma;
+    }
+
+    /**
+     * *********************************************************************************************
+     */
+    /**
+     * *********************************************************************************************
+     */
+    /**
+     * *********************************************************************************************
+     */
+    public int mcd(int x, int y) {
+        int n1 = x;
+        int n2 = y;
+        boolean MCD = false;
+        while (true) {
+            if (n1 > 0 && n2 > 0 && n1 != n2) {
+                System.out.println("correcto");
+                if (n1 > n2) {
+                    int aux = n1;
+                    n1 = n2;
+                    n2 = aux;
+                }
+                int i = n1;
+                while (!MCD && i >= 1) {
+                    if (n1 % i == 0 && n2 % i == 0) {
+                        System.out.println("El MCD es:" + i);
+                        MCD = true;
+                    } else {
+                        i--;
+                    }
+                }
+                {
+                    break;
+                }
+            } else {
+                if (n1 == n2) {
+                    System.out.println("Los números ingresados son iguales"
+                            + "inténtelo nuevamente");
+                    System.out.println("Ingrese el primer número");
+                    n1 = leer.nextInt();
+                    System.out.println("Ingrese el segundo número");
+                    n2 = leer.nextInt();
+                } else {
+                    System.out.println("Los números no son correctos"
+                            + "inténtelo nuevamente");
+                    System.out.println("Ingrese el primer número");
+                    n1 = leer.nextInt();
+                    System.out.println("Ingrese el segundo número");
+                    n2 = leer.nextInt();
+                }
+            }
+        }//WHILE
+        return 0;
+    }
+
+    /**
+     * *********************************************************************************************
+     */
+    /**
+     * *********************************************************************************************
+     */
+    /**
+     * *********************************************************************************************
+     */
+    public int inttobin(int numero) {
+        int num = numero;
+        int residuo = 0;
+        int cociente = num;
+        String cont = "";
+        while (cociente != 0) {
+            residuo = cociente % 2;
+            cociente = cociente / 2;
+            cont = residuo + cont + " ";
+        }
+        System.out.println("El número " + num + " En binario es: " + cont);
+        return 1;
+    }
+
+    /**
+     * *********************************************************************************************
+     */
+    /**
+     * *********************************************************************************************
+     */
+    /**
+     * *********************************************************************************************
+     */
+    public long bintoint(long num) {
+        long numero, aux, digito, decimal;
+        numero = num;
+        int exponente;
+        boolean esBinario;
+        do {
+            //numero=x;
+            //que sea un número binario es decir
+            //que este formado solo por ceros y unos
+            esBinario = true;
+            aux = numero;
+            while (aux != 0) {
+                digito = aux % 10; //última cifra del números
+                if (digito != 0 && digito != 1) { //si no es 0 ó 1
+                    esBinario = false; //no es un número binario
+                    System.out.print("Tiene que ser un número binario: ");
+                    numero = leer.nextLong();
+                }
+                aux = aux / 10; //quita la última cifra para repetir el proceso
+            }
+
+        } while (!esBinario); //se vuelve a pedir si no es binario
+/////////////////////////////////////////////////////////////////////////////////////////////////
+        //proceso para pasar de binario a decimal
+        exponente = 0;
+        decimal = 0; //será el equivalente en base decimal
+        while (numero != 0) {
+            //se toma la última cifra
+            digito = numero % 10;
+            //se multiplica por la potencia de 2 correspondiente y se suma al número
+            decimal = decimal + digito * (int) Math.pow(2, exponente);
+            //se aumenta el exponente
+            exponente++;
+            //se quita la última cifra para repetir el proceso
+            numero = numero / 10;
+        }
+        System.out.println("Decimal: " + decimal);
+
+        return 1;
+    }
+
+    /**
+     * *********************************************************************************************
+     */
+    /**
+     * *********************************************************************************************
+     */
+    /**
+     * *********************************************************************************************
+     */
+    public int sumaarreglo(int numero) {
+        int array = numero;
+        int arreglo[] = new int[array];
+        int ciclo = 0;
+        int x = 0;
+        int y = 0;
+        while (ciclo == 0) {
+            for (int i = 0; i < array; i++) {
+                int a;
+                a = i;
+                System.out.println("Ingrese " + array + " números, para llenar el arreglo");
+                System.out.println("Ingrese un número para la posición " + (a + 1));
+                x = leer.nextInt();
+                arreglo[i] = x;
+                y = y + x;
+            }
+            ciclo = 1;
+        }
+        System.out.println("Este es el resultado:   " + y + "\n");
+        System.out.println("De la sumatoria del arreglo:    " + "*" + Arrays.toString(arreglo) + "*");
+        return 1;
+    }
+
+    /**
+     * *********************************************************************************************
+     */
+    /**
+     * *********************************************************************************************
+     */
+    /**
+     * *********************************************************************************************
+     */
+
+    public static int ArregloInvertido(int numero) {
+        int tamaño = numero;
+        int arreglo[] = new int[tamaño];
+        int arreglo2[] = new int[tamaño];
+        int b = tamaño;
+        for (int i = 0; i < tamaño; i++) {
+            int a;
+            a = i;
+            System.out.println("Ingrese " + tamaño + " números, para llenar el arreglo");
+            System.out.println("Ingrese un número para la posición " + (a + 1));
+            arreglo[i] = leer.nextInt();
+            arreglo2[b - 1] = arreglo[i];
+            b = b - 1;
+        }
+        System.out.println(Arrays.toString(arreglo));
+        System.out.println(Arrays.toString(arreglo2));
+        return 1;
+    }
+
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Segundo taller Cadenas
+
+
+    static Scanner leer = new Scanner(System.in);
+    static TallerValidaCodigos obj = new TallerValidaCodigos();
+
+    public static void main(String[] args) {
+
+       obj.validaCar();
+       obj.validaMot();
+       obj.validaFec();
+       obj.validaCasa();
+
+    }
+//****************************************************************************************************************
+//****************************************************************************************************************
+//****************************************************************************************************************
+
+    public static boolean validaCar(/*String placa*/) {
+        System.out.println("Ingrese las placas del auto:");
+        String x = leer.nextLine();
+        x = x.trim();
+       
+        int ciclo1 = 0;
+        while (ciclo1 == 0) {
+
+            if (x.length() != 6) {
+                System.out.println("El formato debe ser: XXX000." + "\n" + "Inténtelo nuevamente");
+                x = leer.nextLine();
+                x = x.trim();
+            } else if (x.substring(0, 3).matches("^[A-Z]{3}$") == true && x.substring(3, 6).matches("^[0-9]{3}$") == true) {
+                System.out.println("Las placas: " + x.substring(0, 3) + "-" + x.substring(3, 6));
+                System.out.println("Son válidas");
+                ciclo1 = 1;
+            } else {
+                System.out.println("ERROR." + "\n" + "El formato debe ser: XXX000");
+                System.out.println("Ingréselo nuevamente");
+                x = leer.nextLine();
+                x = x.trim();
+            }//SEGUNDO IF
+        }//WHILE
+        if (ciclo1 == 1) {
+          
+        }
+        return false;
+    }
+//****************************************************************************************************************
+//****************************************************************************************************************
+//****************************************************************************************************************
+
+    public static boolean validaMot() {
+         System.out.println("Ingrese las placas de la moto:");
+        String x = leer.nextLine();
+        boolean y = false;
+        int ciclo1 = 0;
+        while (ciclo1 == 0) {
+            if (x.length() != 5) {
+                System.out.println("El formato debe ser: XX000" + "\n" + "Inténtelo nuevamente");
+                x = leer.nextLine();
+                x = x.trim();
+            } else if (x.substring(2, 5).matches("^[0-9]{3}$") == true && x.substring(0, 2).matches("^[A-Z]{2}$") == true) {
+                System.out.println("Las placas: " + x.substring(0, 2) + "-" + x.substring(2, 5));
+                System.out.println("Son válidas");
+                ciclo1 = 1;
+            } else {
+                System.out.println("ERROR" + "\n" + "El formato debe ser: XX000");
+                System.out.println("Ingréselo nuevamente");
+                x = leer.nextLine();
+                x = x.trim();
+            }//SEGUNDO IF
+        }//WHILE
+        if (ciclo1 == 1) {
+            y = true;
+        }
+        return y;
+    }
+//****************************************************************************************************************
+//****************************************************************************************************************
+//****************************************************************************************************************
+    public static int validaDia(int feb) {
+        String x;
+        int ciclo1 = 0;
+        int aux = 0;
+        //boolean y = false;
+        int z = feb;
+        try {
+            while (ciclo1 == 0) {
+                System.out.println("Ingrese el día ");
+                x = leer.nextLine();
+                if (x.length() == 2) {
+                    if (x.substring(0, 2).matches("^[0-9]{2}$") == true) {
+                        aux = Integer.parseInt(x);
+                        if (aux < 32 && aux > 0) {
+                            if (z == 02 && aux > 29) {
+                                System.out.println("El mes no tiene ese día");
+                            } else if(z == 02 && aux > 28){
+                                   System.out.println("El año no es bisiesto, el mes no tiene ese día"); 
+                            }else {
+                                ciclo1 = 1;
+                                //y = true;
+                                return 0;
+                            }
+                        } else {
+                            System.out.println("Deben ser dias existenes");
+                        }
+                    } else {
+                        System.out.println("Solo debe contener números");
+                    }
+                } else {
+                    System.out.println("Día incorrecto");
+                }
+            }//WHILE   
+        } catch (Exception e) {
+            return 0;
+        }
+        return 0;
+    }
+    public static int validaMes(boolean bi) {
+        String x;
+        int ciclo1 = 0;
+        int aux = 0;
+        boolean y = false;
+        boolean z = bi;
+        try {
+            while (ciclo1 == 0) {
+                System.out.println("Ingrese el Mes");
+                x = leer.nextLine();
+                if (x.length() == 2) {
+                    if (x.substring(0, 2).matches("^[0-9]{2}$") == true) {
+                        aux = Integer.parseInt(x);
+                        if (aux <= 12 && aux > 0) {
+
+                            if (aux == 02) {
+                                if (z = true) {
+                                    obj.validaDia(aux);
+                                    ciclo1 = 1;
+                                }
+                            } else {
+
+                                ciclo1 = 1;
+                                y = true;
+                                z=false;
+                                obj.validaDia(aux);
+                                return 0;
+                            }
+                        } else {
+                            System.out.println("Deben ser meses existentes");
+                        }
+                    } else {
+                        System.out.println("Solo debe contener números");
+                    }
+                } else {
+                    System.out.println("Mes incorrecto");
+                }
+            }//WHILE   
+        } catch (Exception e) {
+            return 0;
+        }
+        return 0;
+    }
+    public static int validaFec() {
+        String x;
+        int ciclo1 = 0;
+        int aux = 0;
+        boolean y = false;
+        boolean z = false;
+        try {
+            while (ciclo1 == 0) {
+                System.out.println("Ingrese el Año");
+                x = leer.nextLine();
+                if (x.length() == 4) {
+                    if (x.substring(0).matches("^[0-9]{4}$") == true) {
+                        aux = Integer.parseInt(x);
+                        if (aux % 4 == 0 && aux % 100 != 0 || aux % 4 == 0) {
+                            ciclo1 = 1;
+                            z = true;
+                            System.out.println("Año bisiesto " + z);                           
+                            obj.validaMes(z);
+                            System.out.println("Fecha válida");
+                            return aux;
+                        } else {
+                            aux = Integer.parseInt(x);
+                            ciclo1 = 1;
+                            z = false;
+                            System.out.println("Año bisiesto " + z);
+                            obj.validaMes(z);
+                            System.out.println("Fecha válida");
+                            return aux;
+                        }
+                    } else {
+                        System.out.println("Solo debe contener 4 números");
+                    }
+                } else {
+                    System.out.println("Año incorrecto");
+                }
+            }//WHILE             
+        } catch (Exception e) {
+            return 0;
+        }
+        
+        System.out.println("Fecha válida");
+       
+        return aux;  
+    }
+//****************************************************************************************************************
+//****************************************************************************************************************
+//****************************************************************************************************************   
+public static boolean validaCasa(){
+    try{
+        System.out.println("Ingrese código del inmueble");
+        String x=leer.nextLine();
+        boolean y = false;
+        int ciclo1 = 0;
+        while (ciclo1 == 0) {
+            if (x.length() != 12) {
+                
+                System.out.println("El formato debe ser: XX 000 XXX 0000" + 
+                        "\n" + "Inténtelo nuevamente");
+                
+                x = leer.nextLine();
+                x = x.trim();
+                
+            } else if (x.substring(0, 2).matches("^[A-Z]{2}$") == true 
+                    && x.substring(2, 5).matches("^[0-9]{3}$") == true 
+                    && x.substring(5, 8).matches("^[A-Z]{3}$") == true 
+                    && x.substring(8).matches("^[0-9]{4}$") == true) {
+                
+                System.out.println("El código " + x.substring(0, 2) + "-" 
+                        + x.substring(2, 5) 
+                        + "-" + x.substring(5, 8) + "-" 
+                        + x.substring(8));
+                
+                System.out.println("Es válido");
+                ciclo1 = 1;
+            } else {
+                System.out.println("ERROR" + "\n" + "El formato debe ser: XX 000 XXX 0000");
+                System.out.println("Ingréselo nuevamente");
+                x = leer.nextLine();
+                x = x.trim();
+            }//SEGUNDO IF
+        }//WHILE
+        if (ciclo1 == 1) {
+            y = true;
+        }       
+    }catch(Exception e){
+        return false;
+    }
+    return true;
+}
+}//CLASS PRICIPAL
+
