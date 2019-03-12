@@ -408,7 +408,9 @@
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Segundo taller Cadenas
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                          //Segundo taller Cadenas
 
 
     static Scanner leer = new Scanner(System.in);
@@ -658,4 +660,38 @@ public static boolean validaCasa(){
     return true;
 }
 }//CLASS PRICIPAL
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                          //Tercer taller Cadenas en txt
+                                          
+#include "pch.h"
+#include <iostream>
+#include <stdlib.h>
+#include <fstream>
+#include <string>
+using namespace std;
+  void escribir();
+  int main()
+{
+	    escribir();
+        cout << "Hello World!\n"; 
+	    system("pause");
+}
+  void escribir() {
+	    ofstream archivo;
+	    string nombreArchivo;
+	    cout << "Digite el nombre del archivo" << endl;
+	    getline(cin, nombreArchivo);
+	    archivo.open(nombreArchivo.c_str(),ios::out);//Abriendo el archivo
+	    if (archivo.fail()) {//Fallo en el achivo
+		  cout << "No se pudo abrir el archivo" << endl;
+		  exit(1);//Salir de la taera actual
+	}
+	    archivo << "Agregando un archivo";
+	    archivo.close();
+}
+                                          
+
 
