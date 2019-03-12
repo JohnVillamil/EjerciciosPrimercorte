@@ -694,4 +694,58 @@ using namespace std;
 }
                                           
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                          //Cuarto taller Cadenas en txt
 
+
+#include "pch.h"
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+string lee(istream &a);
+int cuenta(const string &contenido, char c);
+
+int main()
+{
+	int cantidad=0;
+	string contenido;
+	ifstream AlumnosL;
+	AlumnosL.open("C:/Users/johns/Downloads/AlumnosL.txt");
+	
+	if (!AlumnosL.is_open()) {
+		cout << "Error no sea ha podido abrir el archivo" << endl;
+		return 0;
+	}
+			
+	contenido = lee(AlumnosL);
+	cantidad = cuenta(contenido,',');
+	cout << "Cantidad de comas: " << cantidad << endl;
+
+}
+
+
+string lee(istream &a) {
+
+	string s, contenido;
+	while (getline(a, s)) 
+		contenido += s + "\n";
+	
+	return contenido;
+}
+
+int cuenta(const string &contenido, char c) {
+
+	int contador = 0;
+	string::const_iterator i;
+	for (i = contenido.begin(); i != contenido.end(); ++i) 
+
+		if (*i == c) 
+			contador++;
+
+	return contador;
+}
